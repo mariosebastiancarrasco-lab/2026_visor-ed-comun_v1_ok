@@ -113,18 +113,7 @@
         </select>
       </div>
 
-      <div class="filter-group">
-        <label for="select-nivel">Nivel</label>
-        <select id="select-nivel" class="select-filter">
-          <option value="">Todos los Niveles</option>
-          <option value="Inicial">Inicial</option>
-          <option value="Primaria">Primaria</option>
-          <option value="Secundaria">Secundaria</option>
-          <option value="Superior">Superior</option>
-          <option value="SNU">SNU</option>
-          <option value="Otro">Otro</option>
-        </select>
-      </div>
+      
 
       <div class="filter-group">
         <label for="select-modalidad">Modalidad / Oferta Tipo</label>
@@ -366,7 +355,7 @@ function applyFilters(){
   const q = norm(document.getElementById('input-search').value);
   const d = document.getElementById('select-departamento').value;
   const r = document.getElementById('select-region').value;
-  const n = document.getElementById('select-nivel').value;
+  
   const m = document.getElementById('select-modalidad').value;
   const a = document.getElementById('select-ambito').value;
   const s = document.getElementById('select-sector').value;
@@ -382,7 +371,7 @@ function applyFilters(){
       (!q || [pr.establecimiento, pr.cue, pr.localidad, pr.domicilio].some(v => norm(v).includes(q))) &&
       (!d || pr.departamento === d) &&
       (!r || pr.region === r) &&
-      (!n || pr.nivel === n) &&
+      
       (!m || pr.modalidad === m) &&
       (!a || pr.ambito === a) &&
       (!s || pr.sector === s) &&
@@ -401,7 +390,7 @@ function resetFilters(){
   document.getElementById('input-search').value = '';
   document.getElementById('select-departamento').value = '';
   document.getElementById('select-region').value = '';
-  document.getElementById('select-nivel').value = '';
+  
   document.getElementById('select-modalidad').value = '';
   document.getElementById('select-ambito').value = '';
   document.getElementById('select-sector').value = '';
@@ -446,7 +435,7 @@ applyFilters();
 document.getElementById('input-search').addEventListener('input', applyFilters);
 document.getElementById('select-departamento').addEventListener('change', applyFilters);
 document.getElementById('select-region').addEventListener('change', applyFilters);
-document.getElementById('select-nivel').addEventListener('change', applyFilters);
+
 document.getElementById('select-modalidad').addEventListener('change', applyFilters);
 document.getElementById('select-ambito').addEventListener('change', applyFilters);
 document.getElementById('select-sector').addEventListener('change', applyFilters);
